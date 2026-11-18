@@ -1,0 +1,43 @@
+KeyboardLights on Linux
+
+Supports the legacy Cloud Nine C989 with firmware 1.38. Revised keyboards with
+firmware 1.82 are incompatible.
+
+Getting started
+
+Reconnect the keyboard after installing or upgrading. Open KeyboardLights from
+your application menu, or run keyboardlights as your normal desktop user.
+Wait for "C989 connected" and "Current keyboard state loaded" in the footer.
+If the keyboard is not connected or access is denied, unplug it, reconnect it,
+and choose Refresh at the top right.
+
+Making changes
+
+Choose Solid color for fixed colors, or an animation and its speed. The pointer
+selects keys without painting. Open the brush or bucket palette to choose a
+color, then click keys. Clear starts a blank preview; Fill colors blank keys.
+Paint or fill every blank key before saving or reviewing.
+
+Select a key to edit its assignment below the keyboard. Choose Review changes,
+check the summary, confirm, then choose Apply changes to update the keyboard.
+If an update fails, the app stops and tells you what completed.
+
+Profiles and preferences
+
+File > Lighting Profile and File > Assignment Profile have New, Open, Save,
+Save As, and Delete current actions. Opening a profile stages its settings;
+review and apply them to update the keyboard.
+
+Profile dialogs start in ~/.config/KeyboardLights/Profiles. Preferences and
+optional logs use ~/.local/state/KeyboardLights. XDG_CONFIG_HOME and
+XDG_STATE_HOME override those base directories. Removing or purging the package
+keeps these files.
+
+Help
+
+Help > About shows the version and license. Run man keyboardlights for command
+options. For diagnostic logs, close the app and relaunch it with:
+
+    keyboardlights --diagnostic-logging
+
+Logging is off by default. Relaunch without the flag to turn it off again.

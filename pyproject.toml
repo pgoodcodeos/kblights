@@ -1,0 +1,36 @@
+[project]
+name = "keyboardlights"
+version = "1.0.0"
+description = "Configure legacy Cloud Nine C989 keyboards"
+maintainers = [{name = "oscoder47", email = "maintainer@pgoodcode.com"}]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+dependencies = ["PyGObject>=3.46", "pycairo>=1.20"]
+
+[project.urls]
+Homepage = "https://github.com/pgoodcodeos/kblights"
+Repository = "https://github.com/pgoodcodeos/kblights.git"
+Issues = "https://github.com/pgoodcodeos/kblights/issues"
+
+[tool.pylint.main]
+py-version = "3.11"
+persistent = false
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.ruff]
+indent-width = 4
+required-version = "==0.14.4"
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["I"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["keyboardlights", "release", "support"]
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true

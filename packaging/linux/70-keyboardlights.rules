@@ -1,0 +1,3 @@
+# Grant only the active local desktop user access to the legacy C989 hidraw nodes.
+# Match revision 1.38: the revised C989 shares the USB IDs but is incompatible.
+SUBSYSTEM=="hidraw", KERNEL=="hidraw*", ATTRS{idVendor}=="0c45", ATTRS{idProduct}=="8006", ATTRS{bcdDevice}=="0138", TAG+="uaccess"

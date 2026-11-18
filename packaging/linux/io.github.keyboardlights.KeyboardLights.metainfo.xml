@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This metainfo file alone remains under MIT for AppStream compatibility.
+
+MIT License
+
+Copyright (c) 2026 oscoder47
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<component type="desktop-application">
+    <id>io.github.keyboardlights.KeyboardLights</id>
+    <metadata_license>MIT</metadata_license>
+    <project_license>Apache-2.0</project_license>
+    <name>KeyboardLights</name>
+    <summary>Configure legacy Cloud Nine C989 keyboards</summary>
+    <url type="homepage">https://github.com/pgoodcodeos/kblights</url>
+    <url type="bugtracker">https://github.com/pgoodcodeos/kblights/issues</url>
+    <developer id="io.github.keyboardlights">
+        <name>oscoder47</name>
+    </developer>
+    <content_rating type="oars-1.1"/>
+    <description>
+        <p>
+            Customize lighting and key assignments on a legacy Cloud Nine C989
+            keyboard with firmware 1.38. Preview edits, save local profiles, and
+            review changes before applying them to the keyboard.
+        </p>
+        <p>
+            Revised keyboards with firmware 1.82 are incompatible. Run as your
+            normal desktop user and reconnect the keyboard after installation.
+        </p>
+    </description>
+    <launchable type="desktop-id">io.github.keyboardlights.KeyboardLights.desktop</launchable>
+    <provides>
+        <binary>keyboardlights</binary>
+        <modalias>usb:v0C45p8006d0138*</modalias>
+    </provides>
+    <categories>
+        <category>Settings</category>
+        <category>HardwareSettings</category>
+    </categories>
+</component>

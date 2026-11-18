@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+if [ "$1" = configure ] && command -v udevadm >/dev/null 2>&1; then
+    # Existing nodes get the rule on reconnect; do not synthesize input-device events.
+    udevadm control --reload-rules || true
+fi

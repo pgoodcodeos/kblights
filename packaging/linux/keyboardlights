@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+# Installed resources must not inherit development checkout overrides.
+unset KEYBOARDLIGHTS_DATA_DIR KEYBOARDLIGHTS_CORE_LIBRARY KEYBOARDLIGHTS_ICON_FILE
+exec /usr/bin/python3 -B -E -s /usr/lib/keyboardlights/launch.py "$@"

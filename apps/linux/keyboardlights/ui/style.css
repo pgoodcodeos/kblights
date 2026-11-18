@@ -1,0 +1,120 @@
+/* GTK 4 widgets; scoped to this application and its review window. */
+window.keyboardlights {
+    background: #101217;
+    color: #eceef5;
+    font-family: "Inter", "Cantarell", sans-serif;
+    font-size: 13px;
+}
+.keyboardlights .menu-row {
+    background: #14171e;
+    color: #e9ecf4;
+    border-bottom: 1px solid #272b35;
+    box-shadow: none;
+}
+
+.keyboardlights menubar { background: transparent; background-image: none; padding: 2px 8px; }
+.keyboardlights .menu-row > button { padding: 5px 10px; min-height: 0; }
+.keyboardlights menubar > item { padding: 5px 10px; border-radius: 5px; }
+.keyboardlights menubar > item:selected { background: #252b38; }
+.keyboardlights .muted { color: #929bb0; }
+.keyboardlights .eyebrow { color: #939db4; font-size: 10px; font-weight: 700; }
+.keyboardlights .section-title { font-size: 17px; font-weight: 700; }
+.keyboardlights .field-label { font-size: 12px; font-weight: 600; color: #c1c8d9; }
+.keyboardlights .hint { color: #8e98ae; font-size: 11px; }
+.keyboardlights .card {
+    background: #191d26;
+    border: 1px solid #2b303c;
+    border-radius: 16px;
+}
+.keyboardlights button {
+    border-radius: 9px;
+    background: #262c39;
+    color: #dce1ee;
+    border: 1px solid #363d4d;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 8px 13px;
+    font-weight: 600;
+    transition: background-color 120ms ease, border-color 120ms ease;
+}
+.keyboardlights button:hover { background: #303747; border-color: #505a71; }
+.keyboardlights button:focus-visible { outline: 2px solid #ac9cff; outline-offset: 3px; }
+.keyboardlights button:disabled { opacity: 0.42; }
+.keyboardlights button.flat { background: transparent; border-color: transparent; }
+.keyboardlights button.flat:hover { background: #252b38; }
+.keyboardlights button.primary {
+    background: #7453e6;
+    border-color: #a18eff;
+    color: #fff;
+    padding: 10px 20px;
+}
+.keyboardlights button.primary:hover { background: #7b5dea; }
+.keyboardlights button.primary:disabled { background: #3d355e; border-color: #50446c; color: #a69cbe; opacity: 1; }
+.keyboardlights .connection {
+    background: #1a302b; border: 1px solid #2a5145; color: #8ed5b6;
+    border-radius: 20px; padding: 6px 11px; font-size: 11px; font-weight: 600;
+}
+.keyboardlights .connection.offline { background: #252a35; border-color: #3b4353; color: #acb6c9; }
+.keyboardlights .preview-pill {
+    background: #242a36; border: 1px solid #3a4355; color: #afbad0;
+    padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 600;
+}
+.keyboardlights .preview-pill.pending { background: #302a43; border-color: #645183; color: #c5b8ff; }
+.keyboardlights .lock-indicator { color: #8f9bad; font-size: 11px; font-weight: 600; }
+.keyboardlights .lock-indicator.on { color: #73d5a1; }
+.keyboardlights .keyboard-stage {
+    border: 1px solid #343b4c;
+    border-radius: 13px;
+    padding: 7px;
+    background: linear-gradient(150deg, #202637, #131821);
+    box-shadow: 0 12px 30px alpha(#000, 0.3);
+}
+.keyboardlights button.led-key {
+    background: #242c3c; color: #d0d8e9;
+    border: 1px solid #3d475c; border-radius: 5px;
+    padding: 1px; font-size: 9px; font-weight: 500; min-width: 20px; min-height: 16px;
+}
+.keyboardlights button.led-key:disabled { opacity: 1; }
+.keyboardlights button.led-key:hover { border-color: #9ba9c4; }
+.keyboardlights button.led-key:checked, .keyboardlights button.led-key.selected-key {
+    outline: 2px solid #bdadff; outline-offset: 1px; color: #fff;
+}
+.keyboardlights entry, .keyboardlights dropdown > button {
+    background: #11151e; color: #e2e7f3; border: 1px solid #3b4457;
+    border-radius: 8px; box-shadow: none; padding: 8px 10px;
+}
+.keyboardlights entry:focus-within { border-color: #a48dff; box-shadow: 0 0 0 2px alpha(#a48dff, 0.12); }
+.keyboardlights entry.error { border-color: #e78a9a; }
+.keyboardlights button.color-swatch { min-width: 22px; min-height: 22px; padding: 0; border-radius: 50%; border-width: 2px; }
+.keyboardlights button.color-swatch.active { outline: 2px solid #d6cdff; outline-offset: 3px; }
+.keyboardlights flowboxchild { padding: 3px; }
+.keyboardlights scale { padding: 8px 0; }
+.keyboardlights scale trough { min-height: 5px; background: #343b4c; border: none; border-radius: 4px; }
+.keyboardlights scale highlight { background: #9a82fb; border-radius: 4px; }
+.keyboardlights scale slider { background: #ede8ff; border: 2px solid #a48dff; box-shadow: 0 2px 6px alpha(#000, 0.25); min-width: 13px; min-height: 13px; }
+.keyboardlights .value-label { color: #cabaff; font-size: 12px; font-weight: 700; }
+.keyboardlights separator { background: #303644; min-height: 1px; }
+.keyboardlights .footer {
+    background: #151922; border-top: 1px solid #2c3342; padding: 14px 26px;
+}
+.keyboardlights .footer-title { font-size: 12px; font-weight: 700; }
+.keyboardlights .status-message { color: #99a4bb; font-size: 11px; }
+.keyboardlights .status-message.error { color: #f3a4b4; }
+.keyboardlights .review-content { padding: 30px; }
+.keyboardlights .review-summary { background: #222838; border: 1px solid #3a4358; border-radius: 12px; padding: 18px; }
+.keyboardlights checkbutton { color: #c2cbe0; }
+.keyboardlights checkbutton check:checked { background: #8f76f5; border-color: #b49fff; }
+.keyboardlights button.led-key.planned:not(:checked):not(.selected-key) { outline: 1px solid #ac96ff; outline-offset: -2px; }
+.keyboardlights .inspection-banner { padding: 12px 28px; background: #472933; color: #ffced6; border-bottom: 1px solid #87505f; }
+
+.keyboardlights .lighting-bar { padding: 12px; }
+.keyboardlights .paint-preview { padding: 18px; }
+
+.keyboardlights .key-details { padding: 12px; }
+
+.keyboardlights button.pointer-tool { min-width: 24px; min-height: 24px; padding: 2px; border-radius: 5px; }
+.keyboardlights button.pointer-tool:checked { background: #302944; border-color: #b49fff; outline: 2px solid #d6cdff; outline-offset: 1px; }
+
+.keyboardlights .paint-tool > button { min-width: 24px; min-height: 24px; padding: 3px 5px; border-radius: 5px; }
+.keyboardlights .paint-tool.active > button { background: #302944; border-color: #b49fff; outline: 2px solid #d6cdff; outline-offset: 1px; }
+.keyboardlights .paint-chip { border-radius: 2px; }

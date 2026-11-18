@@ -1,0 +1,301 @@
+name: Build, test, and package
+on:
+    push:
+        branches: [main, master]
+        tags: ['v*']
+    pull_request:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: build-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+    style:
+        name: Code style
+        runs-on: macos-15
+        timeout-minutes: 10
+        env:
+            DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
+        steps:
+            - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  ref: ${{ github.sha }}
+                  persist-credentials: false
+            - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+              with:
+                  python-version: '3.12'
+            - name: Install pinned formatters
+              run: python3 -m pip install ruff==0.14.4 clang-format==21.1.8
+            - name: Check formatting
+              run: python3 scripts/format.py --check
+
+    policy:
+        name: Release policy
+        runs-on: ubuntu-24.04
+        timeout-minutes: 5
+        outputs:
+            signed: ${{ steps.config.outputs.signed }}
+        steps:
+            - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  ref: ${{ github.sha }}
+                  persist-credentials: false
+            - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+              with:
+                  python-version: '3.12'
+            - name: Freeze release configuration
+              id: config
+              env:
+                  SIGNING_SETTING: ${{ vars.MACOS_SIGNED_RELEASE }}
+              run: |
+                  python3 scripts/release/verify-config.py
+            - name: Verify pushed release source
+              if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  GH_REPO: ${{ github.repository }}
+                  RELEASE_TAG: ${{ github.ref_name }}
+                  KEYBOARDLIGHTS_MAINTAINER: ${{ vars.RELEASE_MAINTAINER || 'oscoder47 <maintainer@pgoodcode.com>' }}
+              run: |
+                  python3 scripts/release.py check-version --tag "$RELEASE_TAG" --require-maintainer
+                  python3 scripts/release/github-release.py verify-source --tag "$RELEASE_TAG" --commit "$GITHUB_SHA"
+
+    linux:
+        name: Linux (${{ matrix.arch }})
+        needs: [policy, style]
+        runs-on: ${{ matrix.runner }}
+        timeout-minutes: 25
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - runner: ubuntu-24.04
+                      arch: amd64
+                    - runner: ubuntu-24.04-arm
+                      arch: arm64
+        steps:
+            - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  ref: ${{ github.sha }}
+                  persist-credentials: false
+            - name: Verify system Python
+              run: /usr/bin/python3 -c 'import sys; assert sys.version_info[:2] == (3, 12), sys.version'
+            - name: Check version and tag
+              env:
+                  RELEASE_REF: ${{ github.ref }}
+              run: |
+                  /usr/bin/python3 scripts/release.py check-version
+                  if [[ "$RELEASE_REF" == refs/tags/* ]]; then
+                      /usr/bin/python3 scripts/release.py check-version --tag "${RELEASE_REF#refs/tags/}"
+                  fi
+            - name: Install build and GUI test dependencies
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y build-essential dpkg-dev desktop-file-utils appstream lintian python3-gi python3-gi-cairo gir1.2-gtk-4.0 xvfb dbus-x11
+            - name: Build and test
+              run: |
+                  sh scripts/build-linux.sh
+                  export KEYBOARDLIGHTS_ICON_FILE="$PWD/assets/app-icon.svg"
+                  export PYTHONPATH="$PWD/apps/linux"
+                  export KEYBOARDLIGHTS_DATA_DIR="$PWD/data/c989"
+                  export KEYBOARDLIGHTS_CORE_LIBRARY="$PWD/.build/linux/lighting_core.so"
+                  dbus-run-session -- xvfb-run -a env KEYBOARDLIGHTS_GTK_TEST=1 /usr/bin/python3 -m unittest discover -s tests/linux -v
+                  /usr/bin/python3 scripts/checks/test-core.py
+                  /usr/bin/python3 -m unittest discover -s tests/tooling -v
+            - name: Build Debian package
+              env:
+                  KEYBOARDLIGHTS_MAINTAINER: ${{ vars.RELEASE_MAINTAINER || 'oscoder47 <maintainer@pgoodcode.com>' }}
+              run: /usr/bin/python3 scripts/release.py linux
+            - name: Test installation, upgrade, reinstallation, removal, and purge
+              run: |
+                  package=$(find "$GITHUB_WORKSPACE/dist" -maxdepth 1 -name '*.deb' -print -quit)
+                  previous="$RUNNER_TEMP/keyboardlights-previous"
+                  dpkg-deb --raw-extract "$package" "$previous"
+                  sed -i 's/^Version: .*/Version: 0~installcheck/' "$previous/DEBIAN/control"
+                  dpkg-deb --root-owner-group --build "$previous" "$RUNNER_TEMP/keyboardlights-previous.deb"
+                  sudo apt-get install -y "$RUNNER_TEMP/keyboardlights-previous.deb"
+                  export XDG_STATE_HOME="$RUNNER_TEMP/keyboardlights-install-state"
+                  export XDG_CONFIG_HOME="$RUNNER_TEMP/keyboardlights-install-config"
+                  cd /tmp
+                  timeout 60s dbus-run-session -- xvfb-run -a /usr/bin/python3 -B -E -s "$GITHUB_WORKSPACE/scripts/release/check-linux-install.py"
+                  sudo apt-get install -y "$package"
+                  test -f "$XDG_STATE_HOME/KeyboardLights/install-check.txt"
+                  test -f "$XDG_CONFIG_HOME/KeyboardLights/Profiles/install-check.json"
+                  sudo dpkg --verify keyboardlights
+                  timeout 60s dbus-run-session -- xvfb-run -a /usr/bin/python3 -B -E -s "$GITHUB_WORKSPACE/scripts/release/check-linux-install.py"
+                  sudo apt-get install --reinstall -y "$package"
+                  sudo dpkg --verify keyboardlights
+                  test -f "$XDG_CONFIG_HOME/KeyboardLights/Profiles/install-check.json"
+                  test -f "$XDG_STATE_HOME/KeyboardLights/install-check.txt"
+                  timeout 60s dbus-run-session -- xvfb-run -a /usr/bin/python3 -B -E -s "$GITHUB_WORKSPACE/scripts/release/check-linux-install.py"
+                  desktop-file-validate /usr/share/applications/io.github.keyboardlights.KeyboardLights.desktop
+                  sudo apt-get remove -y keyboardlights
+                  sudo apt-get purge -y keyboardlights
+                  test ! -e /usr/bin/keyboardlights
+                  test ! -e /usr/lib/keyboardlights
+                  test ! -e /usr/lib/udev/rules.d/70-keyboardlights.rules
+                  test ! -e /usr/share/applications/io.github.keyboardlights.KeyboardLights.desktop
+                  test ! -e /usr/share/metainfo/io.github.keyboardlights.KeyboardLights.metainfo.xml
+                  test ! -e /usr/share/icons/hicolor/scalable/apps/io.github.keyboardlights.KeyboardLights.svg
+                  test ! -e /usr/share/man/man1/keyboardlights.1.gz
+                  test -f "$XDG_STATE_HOME/KeyboardLights/install-check.txt"
+                  test -f "$XDG_CONFIG_HOME/KeyboardLights/Profiles/install-check.json"
+            - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              with:
+                  name: linux-${{ matrix.arch }}
+                  path: |
+                      dist/*.deb
+                      dist/*.sha256
+                      dist/*.json
+                  if-no-files-found: error
+                  compression-level: 0
+                  overwrite: true
+                  retention-days: 14
+
+    macos:
+        name: macOS (Universal)
+        needs: [policy, style]
+        runs-on: macos-15
+        env:
+            DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
+        timeout-minutes: 90
+        steps:
+            - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  ref: ${{ github.sha }}
+                  persist-credentials: false
+            - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+              with:
+                  python-version: '3.12'
+            - name: Check version and tag
+              env:
+                  RELEASE_REF: ${{ github.ref }}
+              run: |
+                  python3 scripts/release.py check-version
+                  if [[ "$RELEASE_REF" == refs/tags/* ]]; then
+                      python3 scripts/release.py check-version --tag "${RELEASE_REF#refs/tags/}"
+                  fi
+            - name: Test
+              run: |
+                  swift test -c release
+                  python3 scripts/checks/test-core.py
+                  python3 -m unittest discover -s tests/tooling -v
+            - name: Build Mac installer with ad-hoc-signed app
+              env:
+                  KEYBOARDLIGHTS_SIGN_IDENTITY: '-'
+              run: python3 scripts/release.py macos
+            - name: Inspect disk image
+              run: python3 scripts/release/check-macos-image.py dist/*.dmg
+            - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              with:
+                  name: macos-universal2
+                  path: |
+                      dist/*.dmg
+                      dist/*.sha256
+                      dist/*.json
+                  if-no-files-found: error
+                  compression-level: 0
+                  overwrite: true
+                  retention-days: 14
+
+    signed-macos:
+        name: Sign tested Mac release
+        if: needs.policy.outputs.signed == 'true'
+        needs: [policy, style, linux, macos]
+        runs-on: macos-15
+        env:
+            DEVELOPER_DIR: /Applications/Xcode_16.4.app/Contents/Developer
+        timeout-minutes: 90
+        environment: macos-signing
+        steps:
+            - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  ref: ${{ github.sha }}
+                  persist-credentials: false
+            - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+              with:
+                  python-version: '3.12'
+            - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+              with:
+                  name: macos-universal2
+                  path: ${{ runner.temp }}/keyboardlights-preview
+            - name: Verify tested preview and current remote tag
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  GH_REPO: ${{ github.repository }}
+                  RELEASE_TAG: ${{ github.ref_name }}
+              run: python3 scripts/release/github-release.py verify-mac-preview --tag "$RELEASE_TAG" --commit "$GITHUB_SHA" --directory "$RUNNER_TEMP/keyboardlights-preview"
+            - name: Configure release signing
+              env:
+                  MACOS_CERTIFICATE_P12_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+                  MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+                  MACOS_SIGNING_IDENTITY: ${{ secrets.MACOS_SIGNING_IDENTITY }}
+                  APPLE_ID: ${{ secrets.APPLE_ID }}
+                  APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+                  APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+              run: python3 scripts/release/ci-signing.py setup
+            - name: Sign and notarize without rebuilding the tested app
+              run: |
+                  release_version=$(python3 scripts/release.py check-version)
+                  python3 scripts/release.py macos --distribution --from-image "$RUNNER_TEMP/keyboardlights-preview/KeyboardLights-$release_version-macos-universal2-adhoc.dmg"
+                  python3 scripts/release/check-macos-image.py --notarized dist/*.dmg
+            - name: Remove signing material
+              if: always()
+              run: python3 scripts/release/ci-signing.py cleanup
+            - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+              with:
+                  name: macos-signed
+                  path: |
+                      dist/*.dmg
+                      dist/*.sha256
+                      dist/*.json
+                  if-no-files-found: error
+                  compression-level: 0
+                  overwrite: true
+                  retention-days: 14
+
+    draft-release:
+        name: Prepare GitHub release
+        if: >-
+            !cancelled() && github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') &&
+            needs.style.result == 'success' && needs.linux.result == 'success' && needs.macos.result == 'success' &&
+            (needs.signed-macos.result == 'success' ||
+            (needs.policy.outputs.signed != 'true' && needs.signed-macos.result == 'skipped'))
+        needs: [policy, style, linux, macos, signed-macos]
+        runs-on: ubuntu-24.04
+        timeout-minutes: 10
+        environment: github-release
+        permissions:
+            contents: write
+        steps:
+            - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+              with:
+                  ref: ${{ github.sha }}
+                  persist-credentials: false
+            - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548 # v6.1.0
+              with:
+                  python-version: '3.12'
+            - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+              with:
+                  pattern: linux-*
+                  path: release-assets
+            - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+              with:
+                  name: ${{ needs.policy.outputs.signed == 'true' && 'macos-signed' || 'macos-universal2' }}
+                  path: release-assets/macos
+            - name: Validate complete artifact set and prepare or resume a draft
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  GH_REPO: ${{ github.repository }}
+                  RELEASE_TAG: ${{ github.ref_name }}
+                  SIGNED: ${{ needs.policy.outputs.signed }}
+              run: |
+                  release_flags=()
+                  if [[ "$SIGNED" == true ]]; then
+                      release_flags+=(--signed)
+                  fi
+                  python3 scripts/release/github-release.py prepare-draft --tag "$RELEASE_TAG" --commit "$GITHUB_SHA" --directory release-assets "${release_flags[@]}"

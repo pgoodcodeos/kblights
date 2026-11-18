@@ -1,0 +1,1280 @@
+{
+    "format": "c989-legacy-key-led-map-v1",
+    "scope": "saved UserDefine [enable,R,G,B] slots; enable must be 0x80; not a live LED framebuffer",
+    "provenance": "v1.05 CustomizeUI key IDs and LightingAdvUI exposure IDs",
+    "index_formula": "matrix_row * 18 + matrix_column",
+    "slot_count": 144,
+    "physical_key_count": 115,
+    "reserved_slot_count": 29,
+    "lighting_ui_exposed_count": 104,
+    "display_geometry": "left and width in quarter-key units; top and height in key rows; independent of matrix coordinates",
+    "slots": [
+        {
+            "led_index": 0,
+            "matrix_row": 0,
+            "matrix_column": 0,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 1,
+            "matrix_row": 0,
+            "matrix_column": 1,
+            "name": "Esc",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 12, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 2,
+            "matrix_row": 0,
+            "matrix_column": 2,
+            "name": "F1",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 20, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 3,
+            "matrix_row": 0,
+            "matrix_column": 3,
+            "name": "F2",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 24, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 4,
+            "matrix_row": 0,
+            "matrix_column": 4,
+            "name": "F3",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 28, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 5,
+            "matrix_row": 0,
+            "matrix_column": 5,
+            "name": "F4",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 32, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 6,
+            "matrix_row": 0,
+            "matrix_column": 6,
+            "name": "F5",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 36, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 7,
+            "matrix_row": 0,
+            "matrix_column": 7,
+            "name": "F6",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 44, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 8,
+            "matrix_row": 0,
+            "matrix_column": 8,
+            "name": "F7",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 48, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 9,
+            "matrix_row": 0,
+            "matrix_column": 9,
+            "name": "F8",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 52, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 10,
+            "matrix_row": 0,
+            "matrix_column": 10,
+            "name": "F9",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 60, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 11,
+            "matrix_row": 0,
+            "matrix_column": 11,
+            "name": "F10",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 64, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 12,
+            "matrix_row": 0,
+            "matrix_column": 12,
+            "name": "F11",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 68, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 13,
+            "matrix_row": 0,
+            "matrix_column": 13,
+            "name": "F12",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 72, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 14,
+            "matrix_row": 0,
+            "matrix_column": 14,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 15,
+            "matrix_row": 0,
+            "matrix_column": 15,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 16,
+            "matrix_row": 0,
+            "matrix_column": 16,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 17,
+            "matrix_row": 0,
+            "matrix_column": 17,
+            "name": "M6",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 5, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 18,
+            "matrix_row": 1,
+            "matrix_column": 0,
+            "name": "M2",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 0, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 19,
+            "matrix_row": 1,
+            "matrix_column": 1,
+            "name": "`",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 12, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 20,
+            "matrix_row": 1,
+            "matrix_column": 2,
+            "name": "1",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 16, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 21,
+            "matrix_row": 1,
+            "matrix_column": 3,
+            "name": "2",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 20, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 22,
+            "matrix_row": 1,
+            "matrix_column": 4,
+            "name": "3",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 24, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 23,
+            "matrix_row": 1,
+            "matrix_column": 5,
+            "name": "4",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 28, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 24,
+            "matrix_row": 1,
+            "matrix_column": 6,
+            "name": "5",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 32, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 25,
+            "matrix_row": 1,
+            "matrix_column": 7,
+            "name": "6",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 36, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 26,
+            "matrix_row": 1,
+            "matrix_column": 8,
+            "name": "7",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 44, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 27,
+            "matrix_row": 1,
+            "matrix_column": 9,
+            "name": "8",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 48, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 28,
+            "matrix_row": 1,
+            "matrix_column": 10,
+            "name": "9",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 52, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 29,
+            "matrix_row": 1,
+            "matrix_column": 11,
+            "name": "0",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 56, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 30,
+            "matrix_row": 1,
+            "matrix_column": 12,
+            "name": "-",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 60, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 31,
+            "matrix_row": 1,
+            "matrix_column": 13,
+            "name": "=",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 64, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 32,
+            "matrix_row": 1,
+            "matrix_column": 14,
+            "name": "Num Lock",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 91, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 33,
+            "matrix_row": 1,
+            "matrix_column": 15,
+            "name": "Numpad /",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 95, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 34,
+            "matrix_row": 1,
+            "matrix_column": 16,
+            "name": "Numpad *",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 99, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 35,
+            "matrix_row": 1,
+            "matrix_column": 17,
+            "name": "M7",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 5, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 36,
+            "matrix_row": 2,
+            "matrix_column": 0,
+            "name": "M3",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 0, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 37,
+            "matrix_row": 2,
+            "matrix_column": 1,
+            "name": "Tab",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 12, "top": 2, "width": 6, "height": 1}
+        },
+        {
+            "led_index": 38,
+            "matrix_row": 2,
+            "matrix_column": 2,
+            "name": "Q",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 18, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 39,
+            "matrix_row": 2,
+            "matrix_column": 3,
+            "name": "W",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 22, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 40,
+            "matrix_row": 2,
+            "matrix_column": 4,
+            "name": "E",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 26, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 41,
+            "matrix_row": 2,
+            "matrix_column": 5,
+            "name": "R",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 30, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 42,
+            "matrix_row": 2,
+            "matrix_column": 6,
+            "name": "T",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 34, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 43,
+            "matrix_row": 2,
+            "matrix_column": 7,
+            "name": "Y",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 42, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 44,
+            "matrix_row": 2,
+            "matrix_column": 8,
+            "name": "U",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 46, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 45,
+            "matrix_row": 2,
+            "matrix_column": 9,
+            "name": "I",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 50, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 46,
+            "matrix_row": 2,
+            "matrix_column": 10,
+            "name": "O",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 54, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 47,
+            "matrix_row": 2,
+            "matrix_column": 11,
+            "name": "P",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 58, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 48,
+            "matrix_row": 2,
+            "matrix_column": 12,
+            "name": "[",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 62, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 49,
+            "matrix_row": 2,
+            "matrix_column": 13,
+            "name": "]",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 66, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 50,
+            "matrix_row": 2,
+            "matrix_column": 14,
+            "name": "Numpad 7",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 91, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 51,
+            "matrix_row": 2,
+            "matrix_column": 15,
+            "name": "Numpad 8",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 95, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 52,
+            "matrix_row": 2,
+            "matrix_column": 16,
+            "name": "Numpad 9",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 99, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 53,
+            "matrix_row": 2,
+            "matrix_column": 17,
+            "name": "M8",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 5, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 54,
+            "matrix_row": 3,
+            "matrix_column": 0,
+            "name": "M4",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 0, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 55,
+            "matrix_row": 3,
+            "matrix_column": 1,
+            "name": "Caps Lock",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 12, "top": 3, "width": 7, "height": 1}
+        },
+        {
+            "led_index": 56,
+            "matrix_row": 3,
+            "matrix_column": 2,
+            "name": "A",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 19, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 57,
+            "matrix_row": 3,
+            "matrix_column": 3,
+            "name": "S",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 23, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 58,
+            "matrix_row": 3,
+            "matrix_column": 4,
+            "name": "D",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 27, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 59,
+            "matrix_row": 3,
+            "matrix_column": 5,
+            "name": "F",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 31, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 60,
+            "matrix_row": 3,
+            "matrix_column": 6,
+            "name": "G",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 35, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 61,
+            "matrix_row": 3,
+            "matrix_column": 7,
+            "name": "H",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 43, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 62,
+            "matrix_row": 3,
+            "matrix_column": 8,
+            "name": "J",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 47, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 63,
+            "matrix_row": 3,
+            "matrix_column": 9,
+            "name": "K",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 51, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 64,
+            "matrix_row": 3,
+            "matrix_column": 10,
+            "name": "L",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 55, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 65,
+            "matrix_row": 3,
+            "matrix_column": 11,
+            "name": ";",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 59, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 66,
+            "matrix_row": 3,
+            "matrix_column": 12,
+            "name": "'",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 63, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 67,
+            "matrix_row": 3,
+            "matrix_column": 13,
+            "name": "\\",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 70, "top": 2, "width": 6, "height": 1}
+        },
+        {
+            "led_index": 68,
+            "matrix_row": 3,
+            "matrix_column": 14,
+            "name": "Numpad 4",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 91, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 69,
+            "matrix_row": 3,
+            "matrix_column": 15,
+            "name": "Numpad 5",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 95, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 70,
+            "matrix_row": 3,
+            "matrix_column": 16,
+            "name": "Numpad 6",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 99, "top": 3, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 71,
+            "matrix_row": 3,
+            "matrix_column": 17,
+            "name": "M9",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 5, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 72,
+            "matrix_row": 4,
+            "matrix_column": 0,
+            "name": "M5",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 0, "top": 5, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 73,
+            "matrix_row": 4,
+            "matrix_column": 1,
+            "name": "Left Shift",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 12, "top": 4, "width": 9, "height": 1}
+        },
+        {
+            "led_index": 74,
+            "matrix_row": 4,
+            "matrix_column": 2,
+            "name": "Z",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 21, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 75,
+            "matrix_row": 4,
+            "matrix_column": 3,
+            "name": "X",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 25, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 76,
+            "matrix_row": 4,
+            "matrix_column": 4,
+            "name": "C",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 29, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 77,
+            "matrix_row": 4,
+            "matrix_column": 5,
+            "name": "V",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 33, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 78,
+            "matrix_row": 4,
+            "matrix_column": 6,
+            "name": "B",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 37, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 79,
+            "matrix_row": 4,
+            "matrix_column": 7,
+            "name": "N",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 45, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 80,
+            "matrix_row": 4,
+            "matrix_column": 8,
+            "name": "M",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 49, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 81,
+            "matrix_row": 4,
+            "matrix_column": 9,
+            "name": ",",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 53, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 82,
+            "matrix_row": 4,
+            "matrix_column": 10,
+            "name": ".",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 57, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 83,
+            "matrix_row": 4,
+            "matrix_column": 11,
+            "name": "/",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 61, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 84,
+            "matrix_row": 4,
+            "matrix_column": 12,
+            "name": "Right Shift",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 65, "top": 4, "width": 11, "height": 1}
+        },
+        {
+            "led_index": 85,
+            "matrix_row": 4,
+            "matrix_column": 13,
+            "name": "Enter",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 67, "top": 3, "width": 9, "height": 1}
+        },
+        {
+            "led_index": 86,
+            "matrix_row": 4,
+            "matrix_column": 14,
+            "name": "Numpad 1",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 91, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 87,
+            "matrix_row": 4,
+            "matrix_column": 15,
+            "name": "Numpad 2",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 95, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 88,
+            "matrix_row": 4,
+            "matrix_column": 16,
+            "name": "Numpad 3",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 99, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 89,
+            "matrix_row": 4,
+            "matrix_column": 17,
+            "name": "M10",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 5, "top": 5, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 90,
+            "matrix_row": 5,
+            "matrix_column": 0,
+            "name": "M1",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 0, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 91,
+            "matrix_row": 5,
+            "matrix_column": 1,
+            "name": "Left Ctrl",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 12, "top": 5, "width": 5, "height": 1}
+        },
+        {
+            "led_index": 92,
+            "matrix_row": 5,
+            "matrix_column": 2,
+            "name": "Left GUI",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 17, "top": 5, "width": 5, "height": 1}
+        },
+        {
+            "led_index": 93,
+            "matrix_row": 5,
+            "matrix_column": 3,
+            "name": "Left Alt",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 22, "top": 5, "width": 5, "height": 1}
+        },
+        {
+            "led_index": 94,
+            "matrix_row": 5,
+            "matrix_column": 4,
+            "name": "Left Space",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 27, "top": 5, "width": 13, "height": 1}
+        },
+        {
+            "led_index": 95,
+            "matrix_row": 5,
+            "matrix_column": 5,
+            "name": "Right Alt",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 56, "top": 5, "width": 5, "height": 1}
+        },
+        {
+            "led_index": 96,
+            "matrix_row": 5,
+            "matrix_column": 6,
+            "name": "Fn",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 61, "top": 5, "width": 5, "height": 1}
+        },
+        {
+            "led_index": 97,
+            "matrix_row": 5,
+            "matrix_column": 7,
+            "name": "Application",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 66, "top": 5, "width": 5, "height": 1}
+        },
+        {
+            "led_index": 98,
+            "matrix_row": 5,
+            "matrix_column": 8,
+            "name": "Right Ctrl",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 71, "top": 5, "width": 5, "height": 1}
+        },
+        {
+            "led_index": 99,
+            "matrix_row": 5,
+            "matrix_column": 9,
+            "name": "Left",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 78, "top": 5, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 100,
+            "matrix_row": 5,
+            "matrix_column": 10,
+            "name": "Down",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 82, "top": 5, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 101,
+            "matrix_row": 5,
+            "matrix_column": 11,
+            "name": "Up",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 82, "top": 4, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 102,
+            "matrix_row": 5,
+            "matrix_column": 12,
+            "name": "Right",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 86, "top": 5, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 103,
+            "matrix_row": 5,
+            "matrix_column": 13,
+            "name": "Backspace",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 68, "top": 1, "width": 8, "height": 1}
+        },
+        {
+            "led_index": 104,
+            "matrix_row": 5,
+            "matrix_column": 14,
+            "name": "Numpad 0",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 91, "top": 5, "width": 8, "height": 1}
+        },
+        {
+            "led_index": 105,
+            "matrix_row": 5,
+            "matrix_column": 15,
+            "name": "Numpad Decimal",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 99, "top": 5, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 106,
+            "matrix_row": 5,
+            "matrix_column": 16,
+            "name": "Numpad Enter",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 103, "top": 4, "width": 4, "height": 2}
+        },
+        {
+            "led_index": 107,
+            "matrix_row": 5,
+            "matrix_column": 17,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 108,
+            "matrix_row": 6,
+            "matrix_column": 0,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 109,
+            "matrix_row": 6,
+            "matrix_column": 1,
+            "name": "Right Space",
+            "physical_key": true,
+            "lighting_ui_exposed": false,
+            "display": {"left": 44, "top": 5, "width": 12, "height": 1}
+        },
+        {
+            "led_index": 110,
+            "matrix_row": 6,
+            "matrix_column": 2,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 111,
+            "matrix_row": 6,
+            "matrix_column": 3,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 112,
+            "matrix_row": 6,
+            "matrix_column": 4,
+            "name": "Print",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 78, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 113,
+            "matrix_row": 6,
+            "matrix_column": 5,
+            "name": "Scroll Lock",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 82, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 114,
+            "matrix_row": 6,
+            "matrix_column": 6,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 115,
+            "matrix_row": 6,
+            "matrix_column": 7,
+            "name": "Pause",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 86, "top": 0, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 116,
+            "matrix_row": 6,
+            "matrix_column": 8,
+            "name": "Insert",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 78, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 117,
+            "matrix_row": 6,
+            "matrix_column": 9,
+            "name": "Home",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 82, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 118,
+            "matrix_row": 6,
+            "matrix_column": 10,
+            "name": "Page Up",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 86, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 119,
+            "matrix_row": 6,
+            "matrix_column": 11,
+            "name": "Delete",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 78, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 120,
+            "matrix_row": 6,
+            "matrix_column": 12,
+            "name": "End",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 82, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 121,
+            "matrix_row": 6,
+            "matrix_column": 13,
+            "name": "Page Down",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 86, "top": 2, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 122,
+            "matrix_row": 6,
+            "matrix_column": 14,
+            "name": "Numpad -",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 103, "top": 1, "width": 4, "height": 1}
+        },
+        {
+            "led_index": 123,
+            "matrix_row": 6,
+            "matrix_column": 15,
+            "name": "Numpad +",
+            "physical_key": true,
+            "lighting_ui_exposed": true,
+            "display": {"left": 103, "top": 2, "width": 4, "height": 2}
+        },
+        {
+            "led_index": 124,
+            "matrix_row": 6,
+            "matrix_column": 16,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 125,
+            "matrix_row": 6,
+            "matrix_column": 17,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 126,
+            "matrix_row": 7,
+            "matrix_column": 0,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 127,
+            "matrix_row": 7,
+            "matrix_column": 1,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 128,
+            "matrix_row": 7,
+            "matrix_column": 2,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 129,
+            "matrix_row": 7,
+            "matrix_column": 3,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 130,
+            "matrix_row": 7,
+            "matrix_column": 4,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 131,
+            "matrix_row": 7,
+            "matrix_column": 5,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 132,
+            "matrix_row": 7,
+            "matrix_column": 6,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 133,
+            "matrix_row": 7,
+            "matrix_column": 7,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 134,
+            "matrix_row": 7,
+            "matrix_column": 8,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 135,
+            "matrix_row": 7,
+            "matrix_column": 9,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 136,
+            "matrix_row": 7,
+            "matrix_column": 10,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 137,
+            "matrix_row": 7,
+            "matrix_column": 11,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 138,
+            "matrix_row": 7,
+            "matrix_column": 12,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 139,
+            "matrix_row": 7,
+            "matrix_column": 13,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 140,
+            "matrix_row": 7,
+            "matrix_column": 14,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 141,
+            "matrix_row": 7,
+            "matrix_column": 15,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 142,
+            "matrix_row": 7,
+            "matrix_column": 16,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        },
+        {
+            "led_index": 143,
+            "matrix_row": 7,
+            "matrix_column": 17,
+            "name": null,
+            "physical_key": false,
+            "lighting_ui_exposed": false
+        }
+    ]
+}

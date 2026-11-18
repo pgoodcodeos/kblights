@@ -1,0 +1,49 @@
+{
+    "modes": [
+        {
+            "tag": 7,
+            "name": "Colourful",
+            "canonical_record": "07 00 00 00 00 00 00 00 00 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 8,
+            "name": "Breath",
+            "canonical_record": "08 00 00 00 00 00 00 00 01 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 9,
+            "name": "Spectrum",
+            "canonical_record": "09 00 00 00 00 00 00 00 00 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 10,
+            "name": "Volcano",
+            "canonical_record": "0a 00 00 00 00 00 00 00 01 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 11,
+            "name": "Rolling",
+            "canonical_record": "0b 00 00 00 00 00 00 00 01 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 12,
+            "name": "Rotating",
+            "canonical_record": "0c 00 00 00 00 00 00 00 01 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 13,
+            "name": "Flowing",
+            "canonical_record": "0d 00 00 00 00 00 00 00 01 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 14,
+            "name": "Pulsating",
+            "canonical_record": "0e 00 00 00 00 00 00 00 01 10 0c 00 00 00 aa 55"
+        },
+        {
+            "tag": 15,
+            "name": "Tilt",
+            "canonical_record": "0f 00 00 00 00 00 00 00 01 10 0c 00 00 00 aa 55"
+        }
+    ]
+}

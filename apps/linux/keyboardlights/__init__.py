@@ -1,0 +1,1 @@
+"""KeyboardLights Linux application."""

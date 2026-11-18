@@ -1,0 +1,25 @@
+.DS_Store
+.build/
+/dist/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+build/
+*.so
+*.dylib
+*.app/
+*.dmg
+*.deb
+*.rpm
+*.pkg
+*.p12
+*.pfx
+*.keychain-db
+.keyboardlights-*/
+
+# Local editor state and formatting tools
+*.swp
+*.swo
+*~
+.tools/

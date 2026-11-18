@@ -1,0 +1,63 @@
+.TH KEYBOARDLIGHTS 1 "" "KeyboardLights" "User Commands"
+.SH NAME
+keyboardlights \- configure lighting and key assignments on legacy Cloud Nine C989 keyboards
+.SH SYNOPSIS
+.B keyboardlights
+.RI [ options ]
+.SH DESCRIPTION
+KeyboardLights is a GTK application for the legacy Cloud Nine C989 keyboard
+with firmware 1.38. Revised hardware with firmware 1.82 is incompatible.
+Run as your normal desktop user. Reconnect the keyboard after installation
+or upgrade to activate the device access rule.
+.PP
+Settings load automatically when the keyboard is detected. Refresh reloads
+settings while keeping staged edits. Previewing changes and opening profiles
+do not update the keyboard. Review and explicitly apply changes to update it.
+.SH USING THE APP
+Choose Solid color to paint keys and adjust brightness, or an animation to
+adjust its speed. The pointer selects a key without painting. The brush paints
+individual keys; the bucket fills connected keys of the same color.
+Clear starts a blank preview; Fill colors blank keys. Paint or fill every blank
+key before saving a lighting profile or reviewing changes.
+.PP
+Select a key to edit its assignment below the keyboard. Choose Review changes,
+check the summary, select the confirmation checkbox, then choose Apply changes.
+If an update fails, the app stops and reports what completed.
+.PP
+Use File > Lighting Profile or File > Assignment Profile to create, open, save,
+or delete profile files. Opening a profile stages its settings for review.
+.SH OPTIONS
+.TP
+.B \-h, \-\-help
+Show command-line help and exit.
+.TP
+.BI \-\-capture " FILE"
+Open a channel-1 lighting image for offline inspection. Device writes are disabled.
+.TP
+.BI \-\-data-dir " DIRECTORY"
+Choose the directory for preferences and optional diagnostic logs.
+.TP
+.B \-\-diagnostic-logging
+Save diagnostic logs for subsequent operations. Logging is disabled by default.
+.TP
+.B \-\-no-auto-read
+Wait for Refresh instead of reading the keyboard on launch.
+.SH FILES
+.TP
+.I ~/.config/KeyboardLights/Profiles
+Default location for profile file dialogs. Uses
+.B XDG_CONFIG_HOME
+instead of ~/.config when set.
+.TP
+.I ~/.local/state/KeyboardLights
+Preferences and optional diagnostic records. Uses
+.B XDG_STATE_HOME
+instead of ~/.local/state when set.
+.PP
+Removing or purging the package preserves user profiles, preferences, and logs.
+.SH SEE ALSO
+.I /usr/share/doc/keyboardlights/README
+.PP
+Help > About shows the installed app version and license.
+.SH COPYRIGHT
+Copyright 2026 oscoder47. Distributed under the Apache License, Version 2.0.

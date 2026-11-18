@@ -1,0 +1,11 @@
+[
+    {"name": "Off", "hex": "#000000"},
+    {"name": "Cyan", "hex": "#00FFFF"},
+    {"name": "Mint", "hex": "#67E5B1"},
+    {"name": "Blue", "hex": "#5D9CFF"},
+    {"name": "Violet", "hex": "#A48BFF"},
+    {"name": "Pink", "hex": "#F387CB"},
+    {"name": "Coral", "hex": "#FF8D8D"},
+    {"name": "Amber", "hex": "#F6C66F"},
+    {"name": "White", "hex": "#FFFFFF"}
+]

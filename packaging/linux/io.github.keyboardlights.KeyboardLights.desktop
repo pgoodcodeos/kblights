@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=KeyboardLights
+GenericName=Keyboard configuration
+Comment=Customize Cloud Nine C989 lighting and key assignments
+Exec=keyboardlights
+Icon=io.github.keyboardlights.KeyboardLights
+Terminal=false
+Categories=Settings;HardwareSettings;
+StartupNotify=true
+StartupWMClass=KeyboardLights
