@@ -126,8 +126,11 @@ struct LightingView<Keyboard: View>: View {
     private var modePicker: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("Lighting Mode").font(.caption).foregroundStyle(.secondary)
+
+            // An explicit setter closure avoids a Swift 6.3 crash adapting the actor-isolated method reference.
             Picker(
-                "Lighting mode", selection: Binding(get: { state.selectedLightingMode }, set: state.selectLightingMode)
+                "Lighting mode",
+                selection: Binding(get: { state.selectedLightingMode }, set: { state.selectLightingMode($0) })
             ) {
                 Text("Solid color").tag(128)
                 ForEach(BuiltInMode.allCases) { mode in Text(mode.name).tag(Int(mode.rawValue)) }

@@ -731,10 +731,15 @@ class GtkTests(unittest.TestCase):
                 button = w.paint_tools[tool]
                 button.popup()
                 self.wait_until(button.palette.get_mapped, "Paint palette was not mapped")
+
+                # Mapping the popover can precede its children's first size allocation.
+                swatches = (button.last_button, *button.swatches.values())
+                self.wait_until(lambda: all(swatch.get_width() > 0 and swatch.get_height() > 0 for swatch in swatches),
+                    "Paint palette swatches were not allocated")
                 self.assertEqual(self.editor.paint_tool, tool)
                 self.assertTrue(button.has_css_class("active"))
                 self.assertFalse(w.pointer_button.get_active())
-                for swatch in (button.last_button, *button.swatches.values()):
+                for swatch in swatches:
                     self.assertGreater(swatch.get_width(), 0)
                     self.assertEqual(swatch.get_width(), swatch.get_height())
 

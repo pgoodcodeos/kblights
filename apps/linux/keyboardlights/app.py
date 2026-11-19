@@ -61,7 +61,7 @@ def color_hex(value):
 
 class LightingWindow(Gtk.ApplicationWindow):
     def __init__(self, application, editor, *, auto_read=True):
-        super().__init__(application=application, title="KeyboardLights", default_width=860, default_height=725)
+        super().__init__(application=application, title="KeyboardLights", default_width=860, default_height=745)
         self.editor = editor
         self.editor.select_brush(self.editor.last_used_color)
         self.editor.select_pointer()
