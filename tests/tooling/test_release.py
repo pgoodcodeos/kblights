@@ -108,7 +108,14 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual((app / "keyboardlights/app-icon.svg").read_bytes(), icon)
             self.assertEqual((stage / f"usr/share/icons/hicolor/scalable/apps/{release.APP_ID}.svg").read_bytes(), icon)
             self.assertEqual((stage / "usr/share/doc/keyboardlights/copyright").read_bytes(),
-                (ROOT / "LICENSE").read_bytes())
+                (ROOT / "packaging/linux/copyright").read_bytes())
+            copyright_text = (stage / "usr/share/doc/keyboardlights/copyright").read_text()
+            self.assertIn("Copyright: 2026 oscoder47", copyright_text)
+            self.assertIn("License: Apache-2.0\n", copyright_text)
+            self.assertIn("/usr/share/common-licenses/Apache-2.0", copyright_text)
+            self.assertIn(f"Files: packaging/linux/{release.APP_ID}.metainfo.xml\n", copyright_text)
+            self.assertIn("License: Expat\n", copyright_text)
+            self.assertNotIn("TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION", copyright_text)
             self.assertIn("usr/share/doc/keyboardlights/copyright", (stage / "DEBIAN/md5sums").read_text())
             for path in [stage / "DEBIAN/postinst", stage / "DEBIAN/postrm", stage / "usr/bin/keyboardlights"]:
                 self.assertEqual(path.stat().st_mode & 0o777, 0o755)

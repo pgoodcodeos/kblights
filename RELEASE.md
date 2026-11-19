@@ -100,7 +100,8 @@ and signing status. Checksums detect changed files; they do not authenticate the
 
 Run the [tests](CONTRIBUTING.md#tests) first. From the checkout root, follow the
 steps for your platform. Installers, checksums, and JSON manifests go in `dist/`.
-The Apache 2.0 license is included in both installer formats.
+The Mac installer includes the Apache 2.0 license. Debian packages include copyright
+and license notices, referencing the system's `/usr/share/common-licenses/Apache-2.0`.
 
 ### Linux packages
 

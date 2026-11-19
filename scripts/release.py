@@ -218,7 +218,7 @@ def stage_linux(stage: Path, library: Path, release_version: str, architecture: 
     for name in ("postinst", "postrm"):
         install_file(ROOT / "packaging/linux" / name, stage / "DEBIAN" / name, 0o755)
 
-    install_file(ROOT / "LICENSE", stage / "usr/share/doc/keyboardlights/copyright")
+    install_file(ROOT / "packaging/linux/copyright", stage / "usr/share/doc/keyboardlights/copyright")
     sections = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8").split(f"## {release_version}\n", 1)
     if len(sections) != 2:
         raise ValueError(f"CHANGELOG.md has no entry for version {release_version}.")

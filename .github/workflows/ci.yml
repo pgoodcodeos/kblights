@@ -16,10 +16,10 @@ concurrency:
 jobs:
     style:
         name: Code style
-        runs-on: macos-26
+        runs-on: xcode-27
         timeout-minutes: 10
         env:
-            DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+            DEVELOPER_DIR: /Applications/Xcode_27.2.app/Contents/Developer
         steps:
             - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
               with:
@@ -163,9 +163,9 @@ jobs:
     macos:
         name: macOS (Universal)
         needs: [policy, style]
-        runs-on: macos-26
+        runs-on: xcode-27
         env:
-            DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+            DEVELOPER_DIR: /Applications/Xcode_27.2.app/Contents/Developer
         timeout-minutes: 90
         steps:
             - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -185,6 +185,8 @@ jobs:
                   fi
             - name: Test
               run: |
+                  xcodebuild -version
+                  swift --version
                   swift test -c release
                   python3 scripts/checks/test-core.py
                   python3 -m unittest discover -s tests/tooling -v
@@ -210,9 +212,9 @@ jobs:
         name: Sign tested Mac release
         if: needs.policy.outputs.signed == 'true'
         needs: [policy, style, linux, macos]
-        runs-on: macos-26
+        runs-on: xcode-27
         env:
-            DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+            DEVELOPER_DIR: /Applications/Xcode_27.2.app/Contents/Developer
         timeout-minutes: 90
         environment: macos-signing
         steps:

@@ -95,7 +95,7 @@ credentials, and raw device captures out of source control.
 ## Releases and licensing
 
 CI checks formatting, tests macOS in release configuration, and builds and checks
-installers on macOS and both Linux architectures. Mac jobs select Xcode 26.6;
+installers on macOS and both Linux architectures. Mac jobs select Xcode 27.2;
 Python jobs use Python 3.12, including Ubuntu's system Python for its GTK bindings.
 Use Python 3.11 or later for local build, release, and test scripts.
 
