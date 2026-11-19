@@ -43,7 +43,7 @@ Follow these conventions unless language syntax requires otherwise.
 
 Install Ruff 0.14.4 in a development environment. C formatting requires
 clang-format 21.1.8; Swift formatting uses the selected Xcode's swift-format
-(Xcode 16.4 in CI).
+(Xcode 26.6 in CI).
 
 ```sh
 python3 scripts/format.py
