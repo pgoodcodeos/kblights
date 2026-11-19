@@ -144,7 +144,7 @@ jobs:
                   test ! -e /usr/share/man/man1/keyboardlights.1.gz
                   test -f "$XDG_STATE_HOME/KeyboardLights/install-check.txt"
                   test -f "$XDG_CONFIG_HOME/KeyboardLights/Profiles/install-check.json"
-            - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+            - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
               with:
                   name: linux-${{ matrix.arch }}
                   path: |
@@ -190,7 +190,7 @@ jobs:
               run: python3 scripts/release.py macos
             - name: Inspect disk image
               run: python3 scripts/release/check-macos-image.py dist/*.dmg
-            - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+            - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
               with:
                   name: macos-universal2
                   path: |
@@ -246,7 +246,7 @@ jobs:
             - name: Remove signing material
               if: always()
               run: python3 scripts/release/ci-signing.py cleanup
-            - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+            - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
               with:
                   name: macos-signed
                   path: |
