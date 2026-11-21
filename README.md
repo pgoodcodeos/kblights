@@ -6,6 +6,8 @@ Linux. Preview your changes before applying them, and save profiles to reuse lat
 Supports the **legacy C989 with firmware 1.38**. Revised hardware with firmware
 1.82 is incompatible.
 
+[Pretty Good Code LLC website](https://pgoodcode.com/)
+
 ![KeyboardLights on macOS, showing the keyboard lighting preview and selected key settings](assets/macos-gui.png)
 
 *KeyboardLights on macOS.*
